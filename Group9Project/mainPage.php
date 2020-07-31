@@ -19,8 +19,8 @@ if (!empty($_POST)) {
         //Assemble the Reservation to update        
         $fb = new Booking();
         $fb->setBookingId($_POST["bookingid"]);
-        $fb->setUerId($_POST["userid"]);
-        $fb->setcarId($_POST["carid"]);
+        $fb->setUserId($_POST["userid"]);
+        $fb->setCarId($_POST["carid"]);
         //Send the Reservation to the DAO to be updated
         userDAO::updateBooking($fb);
 
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
         //Assemble the Reservation to Insert/Create
         $fb = new Booking();
         $fb->setBookingId($_POST["bookingid"]);
-        $fb->setuUserId($_POST["userid"]);
+        $fb->setUserId($_POST["userid"]);
         $fb->setcarId($_POST["carid"]);
         //$fb->setDeptID($_POST["deptID"]);
         //Send the Reservation to the DAO for creation
@@ -43,7 +43,7 @@ if (!empty($_POST)) {
 //If there was a delete that came in via GET
 if (isset($_GET["action"]) && $_GET["action"] == "delete")  {
     //Use the DAO to delete the corresponding Feedback
-    userDAO::deleteFeedback(9);
+    userDAO::deleteBooking($_GET["bookingid"]);
 }
 
 // Display the header (remeber to set the title/heading)
@@ -54,7 +54,7 @@ Page::header();
 // List all reservations.
 // Note: You need to use the results from the corresponding DAO that gives you the reservation list
 $bookings = userDAO::getBookings();
-Page::listBooking($feedbacks);
+Page::listBooking($bookings);
 
 
 //If there was a edit that came in via GET

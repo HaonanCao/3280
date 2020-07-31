@@ -80,10 +80,10 @@ static function listBooking(Array $bookings)    {
                 foreach($bookings as $booking)  {
                     echo "<tr>";
                     echo "<td>".$booking->getBookingId()."</td>";
-                    echo "<td>".$booking->getuUerId()."</td>";
+                    echo "<td>".$booking->getUserId()."</td>";
                     echo "<td>".$booking->getCarId()."</td>";
-                    echo '<td><a href="?action=edit&feedbackid='.$booking->getBookingId().'">Edit</a></td>';
-                    echo '<td><a href="?action=delete&feedbackid='.$booking->getBookingId().'">Delete</td>';
+                    echo '<td><a href="?action=edit&bookingid='.$booking->getBookingId().'">Edit</a></td>';
+                    echo '<td><a href="?action=delete&bookingid='.$booking->getBookingId().'">Delete</td>';
                     echo "</tr>";
                 } 
         

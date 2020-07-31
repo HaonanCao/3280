@@ -10,7 +10,7 @@ class PDOAgent  {
     private $port = DB_PORT;
 
     private $dsn = "";
-    private $pdo = "";
+    private $pdo;
     private $stmt = "";
     private $className = "";
 

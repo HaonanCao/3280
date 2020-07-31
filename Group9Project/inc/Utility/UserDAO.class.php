@@ -6,13 +6,13 @@ class UserDAO   {
 
     static function init()  {
         //Initialize the internal PDO Agent
-        self::$db = new PDOAgent("User");   //class name (User.class)         
+        self::$db = new PDOAgent("Booking");   //class name (User.class)         
     }    
 
-    static function getBooking( $userId)  {
-       $sql = "SELECT * FROM booking WHERE userId = :userid";
+    static function getBooking( $bookingId)  {
+       $sql = "SELECT * FROM booking WHERE bookingId = :bookingId";
        self::$db->query($sql);
-       self::$db->bind(":userid", $userId); 
+       self::$db->bind(":bookingId", $bookingId); 
        self::$db->execute();
          //return the User object
        return self::$db->singleResult();
@@ -25,7 +25,7 @@ class UserDAO   {
 
       self::$db->query($selectAll);
       self::$db->execute();
-      return self::$db->resultSet(); 
+      return self::$db->getResultSet(); 
   }
 
     static function createBooking(Booking $newBooking) {

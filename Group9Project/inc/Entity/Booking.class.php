@@ -22,10 +22,10 @@ class Booking{
     function setBookingId($bookingId){
         $this->bookingId = $bookingId;
     }
-    function setuUserId($userId){
+    function setUserId($userId){
         $this->userId = $userId;
     }
-    function setcarId($carId){
+    function setCarId($carId){
         $this->carId = $carId;
     }
 
